@@ -72,7 +72,7 @@ class Illdy_Widget_Counter extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'data_to' ); ?>"><?php _e( 'Data to:', 'illdy-companion' ); ?></label>
 			<span class="widefat" style="font-style: italic; display: block;"><?php _e( 'Counter should end at', 'illdy-companion' ); ?></span>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'data_to' ); ?>" name="<?php echo $this->get_field_name( 'data_to' ); ?>" type="number" value="<?php echo esc_attr( $instance['data_to'] ); ?>">
+			<input class="widefat" id="<?php echo $this->get_field_id( 'data_to' ); ?>" name="<?php echo $this->get_field_name( 'data_to' ); ?>" type="text" value="<?php echo esc_attr( $instance['data_to'] ); ?>">
 		</p>
 
 		<p>
@@ -102,8 +102,8 @@ class Illdy_Widget_Counter extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
-		$instance['data_from'] = ( ! empty( $new_instance['data_from'] ) ) ? absint( $new_instance['data_from'] ) : '';
-		$instance['data_to'] = ( ! empty( $new_instance['data_to'] ) ) ? absint( $new_instance['data_to'] ) : '';
+		$instance['data_from'] = ( '' != $new_instance['data_from'] ) ? absint( $new_instance['data_from'] ) : '';
+		$instance['data_to'] = ( '' != $new_instance['data_to'] ) ? absint( $new_instance['data_to'] ) : '';
 		$instance['data_speed'] = ( ! empty( $new_instance['data_speed'] ) ) ? absint( $new_instance['data_speed'] ) : '';
 		$instance['data_refresh_interval'] = ( ! empty( $new_instance['data_refresh_interval'] ) ) ? absint( $new_instance['data_refresh_interval'] ) : '';
 
