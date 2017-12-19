@@ -15,7 +15,7 @@ illdyCompanion.textEditor = {
       tinymce: {
         wpautop: true,
         setup: function( editor ) {
-          editor.on( 'change', function( e ) {
+          editor.on( 'change', function() {
             editor.save();
             jQuery( editor.getElement() ).trigger( 'change' );
           } );
