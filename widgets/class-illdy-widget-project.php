@@ -48,7 +48,7 @@ class Illdy_Widget_Project extends WP_Widget {
 
 		$class = 'project';
 
-		if ( '' == $instance['url'] ) {
+		if ( '' == $instance['url'] && ! $lightbox ) {
 			$class .= ' no-url';
 		}
 		$attr = '';
