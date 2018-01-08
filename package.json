@@ -1,7 +1,7 @@
 {
   "name": "illdy-companion",
   "main": "Gruntfile.js",
-  "version": "2.0.3",
+  "version": "2.0.5",
   "homepage": "https://www.colorlib.com",
   "author": "Colorlib",
   "license": "GPL v3",
