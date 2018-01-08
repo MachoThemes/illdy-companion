@@ -18,7 +18,7 @@ before_script:
   $PHPCS_DIR; fi
 - if [[ "$SNIFF" == "1" ]]; then git clone -b master --depth 1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git
   $SNIFFS_DIR; fi
-- if [[ "$SNIFF" == "1" ]]; then git clone -b master --depth 1 https://github.com/wimg/PHPCompatibility.git
+- if [[ "$SNIFF" == "1" ]]; then git clone -b 7.1.4 --depth 1 https://github.com/wimg/PHPCompatibility.git
   $SNIFFS_DIR/PHPCompatibility; fi
 - if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs --config-set installed_paths
   $SNIFFS_DIR; fi
@@ -45,15 +45,7 @@ script:
 - if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs -p -s -v -n ./**/**/*.php
   --standard=./phpcs.ruleset.xml --extensions=php --ignore=./node_modules/**/*.php;
   fi
-- if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs -p -s -v -n ./**/**/**/*.php
-  --standard=./phpcs.ruleset.xml --extensions=php --ignore=./node_modules/**/**/*.php;
-  fi
-- if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs -p -s -v -n ./**/**/**/**/*.php
-  --standard=./phpcs.ruleset.xml --extensions=php --ignore=./node_modules/**/**/**/*.php;
-  fi
-- if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs -p -s -v -n ./**/**/**/**/**/*.php
-  --standard=./phpcs.ruleset.xml --extensions=php --ignore=./node_modules/**/**/**/**/*.php;
-  fi
+
 notifications:
   email: false
 cache:
