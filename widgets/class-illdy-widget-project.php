@@ -12,15 +12,15 @@ class Illdy_Widget_Project extends WP_Widget {
 			               )
 		);
 
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'adminecho esc_html__nqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
 	/**
 	 *  Enqueue Scripts
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_media();
-		wp_enqueue_script( 'illdy-widget-upload-image', ILLDY_COMPANION_ASSETS_DIR . 'js/widget-upload-image.js', false, '1.0', true );
+		wpecho esc_html__nqueue_media();
+		wpecho esc_html__nqueue_script( 'illdy-widget-upload-image', ILLDY_COMPANION_ASSETS_DIR . 'js/widget-upload-image.js', false, '1.0', true );
 	}
 
 	/**
@@ -97,25 +97,25 @@ class Illdy_Widget_Project extends WP_Widget {
 
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'illdy-companion' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php echo esc_html__( 'Title:', 'illdy-companion' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>">
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_name( 'image' ); ?>"><?php _e( 'Image:', 'illdy-companion' ); ?></label>
-			<input type="text" class="widefat custom_media_url_<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>" id="<?php echo $this->get_field_id( 'image' ); ?>" value="<?php echo $instance['image']; ?>" style="margin-top:5px;">
-			<input type="button" class="button button-primary custom_media_button" id="custom_media_button_service" data-fieldid="<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>" value="<?php _e( 'Upload Image', 'illdy-companion' ); ?>" style="margin-top: 5px;">
+			<label for="<?php echo esc_attr ( $this->get_field_name( 'image' ) ); ?>"><?php echo esc_html__( 'Image:', 'illdy-companion' ); ?></label>
+			<input type="text" class="widefat custom_media_url_<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo esc_attr ( $this->get_field_name( 'image' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" value="<?php echo esc_attr( $instance['image'] ); ?>" style="margin-top:5px;">
+			<input type="button" class="button button-primary custom_media_button" id="custom_media_button_service" data-fieldid="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" value="<?php echo esc_html__( 'Upload Image', 'illdy-companion' ); ?>" style="margin-top: 5px;">
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_name( 'video' ); ?>"><?php _e( 'Video: (YouTube or Vimeo only)', 'illdy-companion' ); ?></label>
-			<input type="text" class="widefat" name="<?php echo $this->get_field_name( 'video' ); ?>" id="<?php echo $this->get_field_id( 'video' ); ?>" value="<?php echo $instance['video']; ?>" style="margin-top:5px;">
+			<label for="<?php echo $this->get_field_name( 'video' ); ?>"><?php echo esc_html__( 'Video: (YouTube or Vimeo only)', 'illdy-companion' ); ?></label>
+			<input type="text" class="widefat" name="<?php echo esc_attr( $this->get_field_name( 'video' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'video' ) ); ?>" value="<?php echo esc_attr( $instance['video'] ); ?>" style="margin-top:5px;">
 		</p>
 
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'url' ); ?>"><?php _e( 'URL:', 'illdy-companion' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'url' ); ?>" name="<?php echo $this->get_field_name( 'url' ); ?>" type="text" value="<?php echo esc_attr( $instance['url'] ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'url' ) ); ?>"><?php echo esc_html__( 'URL:', 'illdy-companion' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'url' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['url'] ); ?>">
 		</p>
 		<?php
 	}
@@ -125,7 +125,7 @@ class Illdy_Widget_Project extends WP_Widget {
 	 *
 	 * @see WP_Widget::update()
 	 *
-	 * @param array $new_instance Values just sent to be saved.
+	 * @param array $new_instance Values just sent to be saved. 
 	 * @param array $old_instance Previously saved values from database.
 	 *
 	 * @return array Updated safe values to be saved.
