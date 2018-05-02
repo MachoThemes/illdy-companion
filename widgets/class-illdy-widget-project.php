@@ -8,8 +8,8 @@ class Illdy_Widget_Project extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'illdy_project', __( '[Illdy] - Project', 'illdy-companion' ), array(
-				               'description' => __( 'Add this widget in "Front page - Projects Sidebar".', 'illdy-companion' ),
-			               )
+				'description' => __( 'Add this widget in "Front page - Projects Sidebar".', 'illdy-companion' ),
+			)
 		);
 
 		add_action( 'adminecho esc_html__nqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -19,8 +19,8 @@ class Illdy_Widget_Project extends WP_Widget {
 	 *  Enqueue Scripts
 	 */
 	public function enqueue_scripts() {
-		wpecho esc_html__nqueue_media();
-		wpecho esc_html__nqueue_script( 'illdy-widget-upload-image', ILLDY_COMPANION_ASSETS_DIR . 'js/widget-upload-image.js', false, '1.0', true );
+		wp_enqueue_media();
+		wp_enqueue_script( 'illdy-widget-upload-image', ILLDY_COMPANION_ASSETS_DIR . 'js/widget-upload-image.js', false, '1.0', true );
 	}
 
 	/**
@@ -102,8 +102,8 @@ class Illdy_Widget_Project extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr ( $this->get_field_name( 'image' ) ); ?>"><?php echo esc_html__( 'Image:', 'illdy-companion' ); ?></label>
-			<input type="text" class="widefat custom_media_url_<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo esc_attr ( $this->get_field_name( 'image' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" value="<?php echo esc_attr( $instance['image'] ); ?>" style="margin-top:5px;">
+			<label for="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>"><?php echo esc_html__( 'Image:', 'illdy-companion' ); ?></label>
+			<input type="text" class="widefat custom_media_url_<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" value="<?php echo esc_attr( $instance['image'] ); ?>" style="margin-top:5px;">
 			<input type="button" class="button button-primary custom_media_button" id="custom_media_button_service" data-fieldid="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" value="<?php echo esc_html__( 'Upload Image', 'illdy-companion' ); ?>" style="margin-top: 5px;">
 		</p>
 
@@ -125,7 +125,7 @@ class Illdy_Widget_Project extends WP_Widget {
 	 *
 	 * @see WP_Widget::update()
 	 *
-	 * @param array $new_instance Values just sent to be saved. 
+	 * @param array $new_instance Values just sent to be saved.
 	 * @param array $old_instance Previously saved values from database.
 	 *
 	 * @return array Updated safe values to be saved.
