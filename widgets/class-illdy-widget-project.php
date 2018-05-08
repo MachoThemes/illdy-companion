@@ -69,9 +69,7 @@ class Illdy_Widget_Project extends WP_Widget {
 			$url = $instance['url'];
 		}
 
-		$output  = '<a href="' . esc_attr( $url ) . '" data-caption="' . esc_attr( $instance['title'] ) . '" class="' . esc_attr( $class ) . '" data-fancybox="gallery"><span class="project-overlay"></span>';
-		$output .= '<img src="' . esc_url( ( $image_id ? esc_url( $get_attachment_image_src[0] ) : esc_url( $instance['image'] ) ) ) . '"/>';
-		$output .= '</a>';
+		$output = '<a href="' . esc_url( $url ) . '" title="' . esc_attr( $instance['title'] ) . '" class="' . $class . '" data-fancybox="gallery" style="background-image: url(' . ( $image_id ? esc_url( $get_attachment_image_src[0] ) : esc_url( $instance['image'] ) ) . ');"><span class="project-overlay"></span></a>';
 
 		echo $output;
 
