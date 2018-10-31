@@ -12,7 +12,7 @@ class Illdy_Widget_Project extends WP_Widget {
 			)
 		);
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
 	/**
