@@ -61,6 +61,7 @@ module.exports = function( grunt ) {
                 '!composer.lock',
                 '!set_tags.sh',
                 '!illdy-companion.zip',
+                '!package-lock.json',
                 '!nbproject/**' ],
             dest: 'build/'
         }
