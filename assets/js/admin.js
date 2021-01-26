@@ -15,7 +15,7 @@ var illdyCompanionImporter = {
       * Import demo content
       */
       importDemoContent: function() {
-          jQuery( '#add_default_sections' ).click( function( e ) {
+          jQuery( '#add_default_sections' ).on('click', function( e ) {
             var container = jQuery( this ).parents( '.action-required-box' ),
                 checkboxes = container.find( ':checkbox' ),
                 args = {
